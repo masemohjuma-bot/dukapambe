@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
@@ -30,6 +31,11 @@ const LoginRoute = LoginRouteImport.update({
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Char91DotmcpChar93ListToolsRoute =
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
+  '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
+  '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
+  '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/mcp'
+    | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/mcp'
+    | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/mcp'
+    | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/.lovable/oauth/consent'
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
   McpRoute: typeof McpRoute
+  SignupRoute: typeof SignupRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
@@ -145,6 +158,13 @@ declare module '@tanstack/react-router' {
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/.mcp/list-tools': {
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
   McpRoute: McpRoute,
+  SignupRoute: SignupRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,

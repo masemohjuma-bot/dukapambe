@@ -2,7 +2,7 @@ import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/login")({
+export const Route = createFileRoute("/signup")({
   ssr: false,
   validateSearch: (s: Record<string, unknown>) => ({
     next: typeof s["next"] === "string" ? s["next"] : "/",
@@ -10,10 +10,10 @@ export const Route = createFileRoute("/login")({
   beforeLoad: async ({ search }) => {
     const { data } = await supabase.auth.getSession();
     if (data.session) {
-      throw redirect({ href: sanitizeNext(search.next) });
+      throw redirect({ href: sanitizeNext(search["next"]) });
     }
   },
-  component: Login,
+  component: Signup,
 });
 
 function sanitizeNext(next: string): string {
@@ -26,7 +26,7 @@ function sanitizeNext(next: string): string {
   }
 }
 
-function Login() {
+function Signup() {
   const { next } = Route.useSearch();
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -38,9 +38,12 @@ function Login() {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: `${window.location.origin}/login?next=${encodeURIComponent(sanitizeNext(next))}`,
+      },
     });
     if (error) {
       setBusy(false);
@@ -54,10 +57,10 @@ function Login() {
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm rounded-lg border border-border bg-card p-6 shadow-sm">
         <h1 className="text-2xl font-semibold tracking-tight text-card-foreground">
-          Sign in
+          Create account
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Sign in to continue to Dukapambe.
+          Sign up to use Dukapambe.
         </p>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div>
@@ -102,18 +105,9 @@ function Login() {
             disabled={busy}
             className="inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
           >
-            {busy ? "Signing in..." : "Sign in"}
+            {busy ? "Creating account..." : "Sign up"}
           </button>
         </form>
-        <p className="mt-4 text-center text-sm text-muted-foreground">
-          Don&apos;t have an account?{" "}
-          <a
-            href={`/signup?next=${encodeURIComponent(sanitizeNext(next))}`}
-            className="text-primary hover:underline"
-          >
-            Sign up
-          </a>
-        </p>
       </div>
     </main>
   );
