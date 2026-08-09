@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 2.8 seconds
-Output:
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
