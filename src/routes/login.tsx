@@ -105,6 +105,15 @@ function Login() {
             {busy ? "Signing in..." : "Sign in"}
           </button>
         </form>
+        <p className="mt-4 text-center text-sm text-muted-foreground">
+          Don&apos;t have an account?{" "}
+          <a
+            href={`/signup?next=${encodeURIComponent(sanitizeNext(next))}`}
+            className="text-primary hover:underline"
+          >
+            Sign up
+          </a>
+        </p>
       </div>
     </main>
   );
