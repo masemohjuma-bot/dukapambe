@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/login")({
   ssr: false,
   validateSearch: (s: Record<string, unknown>) => ({
-    next: typeof s.next === "string" ? s.next : "/",
+    next: typeof s["next"] === "string" ? s["next"] : "/",
   }),
   beforeLoad: async ({ search }) => {
     const { data } = await supabase.auth.getSession();
