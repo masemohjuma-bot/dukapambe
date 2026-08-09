@@ -8,6 +8,9 @@ export default defineTool({
   inputSchema: {
     text: z.string().min(1).describe("Text to echo back."),
   },
+  outputSchema: z.object({
+    echoed: z.string().describe("The echoed text."),
+  }),
   annotations: {
     readOnlyHint: true,
     idempotentHint: true,
@@ -15,5 +18,7 @@ export default defineTool({
   },
   handler: ({ text }) => ({
     content: [{ type: "text", text }],
+    structuredContent: { echoed: text },
   }),
 });
+
