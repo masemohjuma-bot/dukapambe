@@ -1,3 +1,6 @@
+Exit code: 0
+Wall time: 3.1 seconds
+Output:
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -159,7 +162,7 @@ function Index() {
       <section className="relative isolate overflow-hidden bg-gradient-to-b from-cyan-50 via-teal-50/80 to-white">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-[34rem] bg-[radial-gradient(circle_at_15%_5%,rgba(94,234,212,0.22),transparent_38%),radial-gradient(circle_at_88%_18%,rgba(125,211,252,0.22),transparent_34%)]"
+          className="absolute inset-x-0 top-0 -z-10 h-[30rem] bg-[radial-gradient(circle_at_15%_5%,rgba(94,234,212,0.22),transparent_38%),radial-gradient(circle_at_88%_18%,rgba(125,211,252,0.22),transparent_34%)]"
         />
         <div
           aria-hidden="true"
@@ -208,15 +211,15 @@ function Index() {
           </nav>
         </header>
 
-        <div className="mx-auto max-w-5xl px-4 pb-24 pt-14 text-center sm:px-6 sm:pb-32 sm:pt-20 lg:pt-24">
+        <div className="mx-auto max-w-5xl px-4 pb-16 pt-10 text-center sm:px-6 sm:pb-20 sm:pt-12 lg:pb-24 lg:pt-14">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-teal-700/10 bg-white/65 px-3 py-1.5 text-xs font-semibold tracking-wide text-teal-900 shadow-sm backdrop-blur sm:text-sm">
             <MapPin className="size-4 text-rose-500" aria-hidden="true" />
-            Mombasa Â· Kwale Â· Kilifi
+            Mombasa, Kwale na Kilifi
           </div>
-          <h1 className="mx-auto mt-6 max-w-4xl text-balance text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
+          <h1 className="mx-auto mt-5 max-w-4xl text-balance text-4xl font-bold tracking-[-0.04em] text-slate-950 sm:text-5xl lg:text-6xl">
             Soko la Mitindo kwa Pwani ya Kenya
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Tafuta nguo, viatu, mikoba, manukato, vito na bidhaa za watoto kutoka wauzaji wa
             Mombasa, Kwale na Kilifi.
           </p>
@@ -224,7 +227,7 @@ function Index() {
           <form
             id="tafuta"
             onSubmit={handleSearch}
-            className="mx-auto mt-9 flex max-w-3xl flex-col gap-2 rounded-[1.4rem] border border-white/90 bg-white p-2.5 text-left shadow-[0_20px_65px_-28px_rgba(13,116,116,0.38)] sm:flex-row sm:rounded-full"
+            className="mx-auto mt-7 flex max-w-3xl flex-col gap-2 rounded-[1.4rem] border border-white/90 bg-white p-2.5 text-left shadow-[0_20px_65px_-28px_rgba(13,116,116,0.38)] sm:flex-row sm:rounded-full"
           >
             <label htmlFor="hero-search" className="sr-only">
               Tafuta bidhaa, kategoria au eneo
@@ -264,7 +267,7 @@ function Index() {
       </section>
 
       <main>
-        <section id="kategoria" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section id="kategoria" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
           <SectionHeading
             eyebrow="Gundua kwa kategoria"
             title="Anza na unachotafuta"
@@ -278,7 +281,7 @@ function Index() {
         </section>
 
         <section className="border-y border-slate-100 bg-slate-50/70">
-          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-16">
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8">
             <div>
               <span className="text-sm font-bold tracking-wide text-teal-700">
                 Nunua kwa eneo lako
@@ -308,7 +311,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="bidhaa" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <section id="bidhaa" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
           <SectionHeading
             eyebrow="Bidhaa za kuanzia"
             title="Gundua kinachopatikana Pwani"
@@ -321,7 +324,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 sm:pb-14 lg:px-8">
           <div className="overflow-hidden rounded-[2rem] border border-teal-900/10 bg-gradient-to-br from-teal-800 via-teal-700 to-cyan-700 px-6 py-10 text-white shadow-[0_24px_70px_-35px_rgba(15,118,110,0.8)] sm:px-10 sm:py-12 lg:flex lg:items-center lg:justify-between lg:gap-10">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2 text-sm font-bold text-teal-100">
@@ -346,7 +349,7 @@ function Index() {
         </section>
 
         <section className="bg-rose-50/45">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
             <SectionHeading
               eyebrow="Dukapambe ni rahisi"
               title="Soko la karibu, bila usumbufu"
@@ -403,7 +406,7 @@ function Index() {
           </div>
           <div>
             <h2 className="text-sm font-bold text-slate-900">Kaunti za uzinduzi</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">Mombasa Â· Kwale Â· Kilifi</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">Mombasa, Kwale na Kilifi</p>
             <a
               href="/login"
               className="mt-3 inline-block text-sm font-semibold text-teal-700 hover:text-teal-800"
@@ -413,7 +416,7 @@ function Index() {
           </div>
         </div>
         <div className="border-t border-slate-100 px-4 py-5 text-center text-xs text-slate-500">
-          Â© 2026 Dukapambe Â· Kiswahili kwanza kwa Pwani ya Kenya
+          2026 Dukapambe | Kiswahili kwanza kwa Pwani ya Kenya
         </div>
       </footer>
     </div>
@@ -467,9 +470,9 @@ function CategoryCard({ category }: { category: Category }) {
 function ProductCard({ product }: { product: ProductPreview }) {
   const Icon = product.icon;
   return (
-    <article className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-900/5">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-900/5">
       <div
-        className={`relative aspect-[4/5] overflow-hidden bg-gradient-to-br ${product.gradient}`}
+        className={`relative h-40 shrink-0 overflow-hidden bg-gradient-to-br sm:h-44 ${product.gradient}`}
       >
         <div
           aria-hidden="true"
@@ -489,11 +492,11 @@ function ProductCard({ product }: { product: ProductPreview }) {
           Inapatikana
         </span>
       </div>
-      <div className="p-4">
+      <div className="flex flex-1 flex-col p-4">
         <p className="text-xs font-semibold text-teal-700">{product.category}</p>
         <h3 className="mt-1 line-clamp-2 font-bold leading-snug text-slate-900">{product.title}</h3>
         <p className="mt-2 text-lg font-extrabold tracking-tight text-slate-950">{product.price}</p>
-        <p className="mt-2 flex items-center gap-1.5 text-xs text-slate-500 sm:text-sm">
+        <p className="mt-auto flex items-center gap-1.5 pt-3 text-xs text-slate-500 sm:text-sm">
           <MapPin className="size-3.5 shrink-0 text-rose-500" aria-hidden="true" />
           <span className="truncate">{product.location}</span>
         </p>
