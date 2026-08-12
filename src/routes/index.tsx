@@ -275,13 +275,13 @@ function Index() {
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-2 text-xs font-bold tracking-[0.12em] text-teal-50 shadow-sm backdrop-blur-md sm:text-sm">
               <MapPin className="size-4 text-[#ffd08d]" aria-hidden="true" />
-              MOMBASA Â· KWALE Â· KILIFI
+              MOMBASA · KWALE · KILIFI
             </div>
             <h1 className="mt-6 max-w-4xl text-balance text-4xl font-extrabold leading-[1.02] tracking-[-0.045em] text-white drop-shadow-sm sm:text-6xl lg:text-7xl">
               Soko la Mitindo la Pwani ya Kenya
             </h1>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/82 sm:text-xl sm:leading-8">
-              Gundua mitindo iliyochaguliwa kutoka kwa wauzaji wa Mombasa, Kwale na Kilifi â€” mahali
+              Gundua mitindo iliyochaguliwa kutoka kwa wauzaji wa Mombasa, Kwale na Kilifi — mahali
               ambapo ubunifu wa Pwani hukutana na urahisi wa kisasa.
             </p>
 
