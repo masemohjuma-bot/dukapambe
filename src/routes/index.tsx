@@ -179,6 +179,21 @@ function Index() {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCounty, setSelectedCounty] = useState<string | null>(null);
+  const [openProduct, setOpenProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    if (!openProduct) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenProduct(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [openProduct]);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase();
@@ -212,6 +227,7 @@ function Index() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#fbfaf6] text-slate-900">
+      {!openProduct && <FloatingBackground />}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#062d35]/88 shadow-[0_12px_40px_-20px_rgba(2,20,26,0.85)] backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-2 px-3 sm:h-20 sm:px-6 lg:px-8">
           <a
