@@ -226,7 +226,7 @@ function Index() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#fbfaf6] text-slate-900">
+    <div className="relative min-h-screen overflow-x-hidden text-slate-900">
       {!openProduct && <FloatingBackground />}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#062d35]/88 shadow-[0_12px_40px_-20px_rgba(2,20,26,0.85)] backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-2 px-3 sm:h-20 sm:px-6 lg:px-8">
