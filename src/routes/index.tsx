@@ -19,7 +19,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -179,6 +179,21 @@ function Index() {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedCounty, setSelectedCounty] = useState<string | null>(null);
+  const [openProduct, setOpenProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    if (!openProduct) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpenProduct(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [openProduct]);
 
   const filteredProducts = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase();
@@ -211,7 +226,8 @@ function Index() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#fbfaf6] text-slate-900">
+    <div className="relative min-h-screen overflow-x-hidden text-slate-900">
+      {!openProduct && <FloatingBackground />}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#062d35]/88 shadow-[0_12px_40px_-20px_rgba(2,20,26,0.85)] backdrop-blur-xl transition-colors">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-2 px-3 sm:h-20 sm:px-6 lg:px-8">
           <a
@@ -447,7 +463,11 @@ function Index() {
           {filteredProducts.length > 0 ? (
             <div className="mt-9 grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3 lg:gap-7">
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onOpenImage={() => setOpenProduct(product)}
+                />
               ))}
             </div>
           ) : (
@@ -554,6 +574,54 @@ function Index() {
           2026 Dukapambe | Fashion Marketplace of the Kenyan Coast
         </div>
       </footer>
+
+      {openProduct && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={openProduct.title}
+          onClick={() => setOpenProduct(null)}
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#03212a]/85 p-4 backdrop-blur-sm"
+        >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            className="relative w-full max-w-3xl overflow-hidden rounded-[1.5rem] bg-white shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setOpenProduct(null)}
+              aria-label="Funga picha"
+              className="absolute right-3 top-3 z-10 flex size-10 items-center justify-center rounded-full bg-[#062f37]/80 text-white backdrop-blur transition-colors hover:bg-[#062f37]"
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
+            <img
+              src={openProduct.image}
+              alt={openProduct.title}
+              className="max-h-[70vh] w-full object-contain bg-slate-100"
+            />
+            <div className="flex flex-wrap items-center justify-between gap-3 p-5">
+              <div>
+                <h3 className="text-lg font-extrabold text-slate-900">{openProduct.title}</h3>
+                <p className="mt-1 text-sm text-slate-500">{openProduct.location}</p>
+              </div>
+              <p className="text-xl font-black text-[#092f35]">
+                KES {openProduct.price.toLocaleString("en-KE")}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function FloatingBackground() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div className="dp-float-a absolute -left-24 top-[18%] size-72 rounded-full bg-[radial-gradient(circle,rgba(21,127,132,0.20),transparent_70%)] blur-2xl" />
+      <div className="dp-float-b absolute right-[-6rem] top-[42%] size-96 rounded-full bg-[radial-gradient(circle,rgba(242,184,107,0.22),transparent_70%)] blur-3xl" />
+      <div className="dp-float-c absolute bottom-[8%] left-[35%] size-80 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.14),transparent_70%)] blur-3xl" />
     </div>
   );
 }
@@ -652,10 +720,15 @@ function CategoryCard({
   );
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, onOpenImage }: { product: Product; onOpenImage: () => void }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/75 bg-white shadow-[0_12px_35px_-24px_rgba(15,52,59,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-700/20 hover:shadow-[0_24px_55px_-26px_rgba(15,74,80,0.55)] active:scale-[0.985]">
-      <div className="relative aspect-[4/3] shrink-0 overflow-hidden bg-slate-100">
+    <article className="group relative z-10 flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/75 bg-white shadow-[0_12px_35px_-24px_rgba(15,52,59,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-700/20 hover:shadow-[0_24px_55px_-26px_rgba(15,74,80,0.55)] active:scale-[0.985]">
+      <button
+        type="button"
+        onClick={onOpenImage}
+        aria-label={`Fungua picha ya ${product.title}`}
+        className="relative aspect-[4/3] w-full shrink-0 cursor-zoom-in overflow-hidden bg-slate-100"
+      >
         <img
           src={product.image}
           alt={product.title}
@@ -675,7 +748,7 @@ function ProductCard({ product }: { product: Product }) {
           <MapPin className="size-3 text-[#ffd08d]" aria-hidden="true" />
           {product.county}
         </span>
-      </div>
+      </button>
       <div className="flex flex-1 flex-col p-5">
         <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-teal-700">
           {product.category}

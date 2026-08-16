@@ -138,7 +138,30 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: #fbfaf6;
     color: var(--color-foreground);
   }
+}
+
+@keyframes dp-float-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2.5rem, -3rem, 0) scale(1.12); }
+}
+
+@keyframes dp-float-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(-3rem, 2.5rem, 0) scale(0.92); }
+}
+
+@keyframes dp-float-c {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(1.5rem, 2rem, 0) rotate(12deg); }
+}
+
+.dp-float-a { animation: dp-float-a 22s ease-in-out infinite; }
+.dp-float-b { animation: dp-float-b 28s ease-in-out infinite; }
+.dp-float-c { animation: dp-float-c 18s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dp-float-a, .dp-float-b, .dp-float-c { animation: none; }
 }
