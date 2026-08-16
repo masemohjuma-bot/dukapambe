@@ -723,10 +723,15 @@ function CategoryCard({
   );
 }
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, onOpenImage }: { product: Product; onOpenImage: () => void }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/75 bg-white shadow-[0_12px_35px_-24px_rgba(15,52,59,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-700/20 hover:shadow-[0_24px_55px_-26px_rgba(15,74,80,0.55)] active:scale-[0.985]">
-      <div className="relative aspect-[4/3] shrink-0 overflow-hidden bg-slate-100">
+    <article className="group relative z-10 flex h-full flex-col overflow-hidden rounded-[1.35rem] border border-slate-200/75 bg-white shadow-[0_12px_35px_-24px_rgba(15,52,59,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-700/20 hover:shadow-[0_24px_55px_-26px_rgba(15,74,80,0.55)] active:scale-[0.985]">
+      <button
+        type="button"
+        onClick={onOpenImage}
+        aria-label={`Fungua picha ya ${product.title}`}
+        className="relative aspect-[4/3] w-full shrink-0 cursor-zoom-in overflow-hidden bg-slate-100"
+      >
         <img
           src={product.image}
           alt={product.title}
