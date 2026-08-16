@@ -751,7 +751,7 @@ function ProductCard({ product, onOpenImage }: { product: Product; onOpenImage: 
           <MapPin className="size-3 text-[#ffd08d]" aria-hidden="true" />
           {product.county}
         </span>
-      </div>
+      </button>
       <div className="flex flex-1 flex-col p-5">
         <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-teal-700">
           {product.category}
