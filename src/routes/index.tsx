@@ -380,7 +380,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="border-y border-teal-950/8 bg-[#eef7f4]">
+        <section className="border-y border-teal-950/8 bg-[#eef7f4]/70 backdrop-blur-sm">
           <div className="mx-auto grid max-w-7xl gap-9 px-4 py-12 sm:px-6 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
             <div>
               <span className="text-sm font-extrabold tracking-[0.08em] text-teal-700">
@@ -503,7 +503,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="bg-[#f7ece6]">
+        <section className="bg-[#f7ece6]/70 backdrop-blur-sm">
           <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-18 lg:px-8">
             <SectionHeading
               eyebrow="Dukapambe ni rahisi"
@@ -532,7 +532,7 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-100 bg-white">
+      <footer className="border-t border-slate-100 bg-white/75 backdrop-blur-sm">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.4fr_0.6fr_0.6fr] lg:px-8">
           <div className="max-w-md">
             <div className="flex items-center gap-2.5">
@@ -618,7 +618,7 @@ function Index() {
 
 function FloatingBackground() {
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[linear-gradient(180deg,#f4fbf9_0%,#e7f4f2_45%,#f7f1ea_100%)]">
       <div className="dp-float-a absolute -left-24 top-[18%] size-72 rounded-full bg-[radial-gradient(circle,rgba(21,127,132,0.20),transparent_70%)] blur-2xl" />
       <div className="dp-float-b absolute right-[-6rem] top-[42%] size-96 rounded-full bg-[radial-gradient(circle,rgba(242,184,107,0.22),transparent_70%)] blur-3xl" />
       <div className="dp-float-c absolute bottom-[8%] left-[35%] size-80 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.14),transparent_70%)] blur-3xl" />
