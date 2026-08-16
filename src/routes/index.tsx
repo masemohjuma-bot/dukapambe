@@ -19,7 +19,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -463,7 +463,11 @@ function Index() {
           {filteredProducts.length > 0 ? (
             <div className="mt-9 grid grid-cols-1 gap-5 min-[480px]:grid-cols-2 lg:grid-cols-3 lg:gap-7">
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onOpenImage={() => setOpenProduct(product)}
+                />
               ))}
             </div>
           ) : (
@@ -570,6 +574,57 @@ function Index() {
           2026 Dukapambe | Fashion Marketplace of the Kenyan Coast
         </div>
       </footer>
+
+      {openProduct && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={openProduct.title}
+          onClick={() => setOpenProduct(null)}
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#03212a]/85 p-4 backdrop-blur-sm"
+        >
+          <div
+            onClick={(event) => event.stopPropagation()}
+            className="relative w-full max-w-3xl overflow-hidden rounded-[1.5rem] bg-white shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setOpenProduct(null)}
+              aria-label="Funga picha"
+              className="absolute right-3 top-3 z-10 flex size-10 items-center justify-center rounded-full bg-[#062f37]/80 text-white backdrop-blur transition-colors hover:bg-[#062f37]"
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
+            <img
+              src={openProduct.image}
+              alt={openProduct.title}
+              className="max-h-[70vh] w-full object-contain bg-slate-100"
+            />
+            <div className="flex flex-wrap items-center justify-between gap-3 p-5">
+              <div>
+                <h3 className="text-lg font-extrabold text-slate-900">{openProduct.title}</h3>
+                <p className="mt-1 text-sm text-slate-500">{openProduct.location}</p>
+              </div>
+              <p className="text-xl font-black text-[#092f35]">
+                KES {openProduct.price.toLocaleString("en-KE")}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function FloatingBackground() {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    >
+      <div className="dp-float-a absolute -left-24 top-[18%] size-72 rounded-full bg-[radial-gradient(circle,rgba(21,127,132,0.20),transparent_70%)] blur-2xl" />
+      <div className="dp-float-b absolute right-[-6rem] top-[42%] size-96 rounded-full bg-[radial-gradient(circle,rgba(242,184,107,0.22),transparent_70%)] blur-3xl" />
+      <div className="dp-float-c absolute bottom-[8%] left-[35%] size-80 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.14),transparent_70%)] blur-3xl" />
     </div>
   );
 }
