@@ -103,7 +103,7 @@ export async function uploadDocument(kind: string, file: File, previous?: Docume
   const user = check(await supabase.auth.getUser()).user;
   if (!user) throw new Error("Your session expired.");
   const bucket =
-    kind === "logo" ? "store-logos" : kind === "banner" ? "store-banners" : "seller-documents";
+    kind === "logo" ? "seller-logos" : kind === "banner" ? "seller-banners" : "seller-documents";
   const extension =
     file.type === "application/pdf" ? "pdf" : file.type === "image/png" ? "png" : "jpg";
   const path = `${user.id}/${kind}/${crypto.randomUUID()}.${extension}`;

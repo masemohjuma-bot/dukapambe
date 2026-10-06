@@ -11,7 +11,11 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test:seller": "node --experimental-strip-types --test tests/seller-model.test.ts tests/seller-database.test.mjs tests/seller-routes.test.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:integration": "node --experimental-strip-types --test tests/auth-navigation.test.ts tests/backend-integration.test.mjs",
+    "verify:supabase": "node scripts/verify-supabase-public.mjs --write",
+    "verify:migrations": "node scripts/check-migration-preflight.mjs",
+    "verify:session": "node scripts/verify-live-session.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

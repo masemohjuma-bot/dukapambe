@@ -96,6 +96,7 @@ export type Database = {
       }
       buyer_profiles: {
         Row: {
+          avatar_path: string | null
           county: string | null
           created_at: string
           marketing_consent: boolean
@@ -104,6 +105,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          avatar_path?: string | null
           county?: string | null
           created_at?: string
           marketing_consent?: boolean
@@ -112,6 +114,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          avatar_path?: string | null
           county?: string | null
           created_at?: string
           marketing_consent?: boolean

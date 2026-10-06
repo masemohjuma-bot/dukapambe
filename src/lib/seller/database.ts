@@ -2,6 +2,13 @@ import type { Application, DocumentRecord } from "./model";
 import type { Json } from "@/integrations/supabase/types";
 type Table<Row> = { Row: Row; Insert: Partial<Row>; Update: Partial<Row>; Relationships: [] };
 export type SellerTables = {
+  seller_status_history: Table<{
+    id: string;
+    user_id: string;
+    from_status: string | null;
+    to_status: string;
+    changed_at: string;
+  }>;
   seller_onboarding: Table<Application & { updated_at: string }>;
   seller_documents: Table<DocumentRecord & { user_id: string }>;
   seller_stores: Table<{
