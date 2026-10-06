@@ -254,7 +254,7 @@ function Index() {
               Ingia
             </a>
             <a
-              href="/login"
+              href="/seller/register"
               className="inline-flex min-h-9 items-center justify-center rounded-full bg-[#f2b86b] px-3 text-xs font-extrabold text-[#17343a] shadow-[0_8px_24px_-10px_rgba(242,184,107,0.8)] transition-all hover:-translate-y-0.5 hover:bg-[#ffd08d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f2b86b] active:scale-[0.98] sm:min-h-10 sm:px-5 sm:text-sm"
             >
               <span className="sm:hidden">Uza Bidhaa</span>
@@ -494,7 +494,7 @@ function Index() {
               </p>
             </div>
             <a
-              href="/login"
+              href="/seller/register"
               className="mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-extrabold text-teal-900 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98] lg:mt-0"
             >
               Uza Bidhaa Yako

@@ -15,6 +15,9 @@ import { Route as McpRouteImport } from './routes/mcp'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as SellerDashboardRouteImport } from './routes/seller.dashboard'
+import { Route as SellerRegisterRouteImport } from './routes/seller.register'
+import { Route as SellerStatusRouteImport } from './routes/seller.status'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 
@@ -50,6 +53,21 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SellerDashboardRoute = SellerDashboardRouteImport.update({
+  id: '/seller/dashboard',
+  path: '/seller/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerRegisterRoute = SellerRegisterRouteImport.update({
+  id: '/seller/register',
+  path: '/seller/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SellerStatusRoute = SellerStatusRouteImport.update({
+  id: '/seller/status',
+  path: '/seller/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
   id: '/.lovable/oauth/consent',
   path: '/.lovable/oauth/consent',
@@ -69,6 +87,9 @@ export interface FileRoutesByFullPath {
   '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/seller/dashboard': typeof SellerDashboardRoute
+  '/seller/register': typeof SellerRegisterRoute
+  '/seller/status': typeof SellerStatusRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -79,6 +100,9 @@ export interface FileRoutesByTo {
   '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/seller/dashboard': typeof SellerDashboardRoute
+  '/seller/register': typeof SellerRegisterRoute
+  '/seller/status': typeof SellerStatusRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -90,6 +114,9 @@ export interface FileRoutesById {
   '/signup': typeof SignupRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/seller/dashboard': typeof SellerDashboardRoute
+  '/seller/register': typeof SellerRegisterRoute
+  '/seller/status': typeof SellerStatusRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -102,6 +129,9 @@ export interface FileRouteTypes {
     | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/seller/dashboard'
+    | '/seller/register'
+    | '/seller/status'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
@@ -112,6 +142,9 @@ export interface FileRouteTypes {
     | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/seller/dashboard'
+    | '/seller/register'
+    | '/seller/status'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   id:
@@ -122,6 +155,9 @@ export interface FileRouteTypes {
     | '/signup'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/seller/dashboard'
+    | '/seller/register'
+    | '/seller/status'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
@@ -133,6 +169,9 @@ export interface RootRouteChildren {
   SignupRoute: typeof SignupRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  SellerDashboardRoute: typeof SellerDashboardRoute
+  SellerRegisterRoute: typeof SellerRegisterRoute
+  SellerStatusRoute: typeof SellerStatusRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -181,6 +220,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seller/dashboard': {
+      id: '/seller/dashboard'
+      path: '/seller/dashboard'
+      fullPath: '/seller/dashboard'
+      preLoaderRoute: typeof SellerDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller/register': {
+      id: '/seller/register'
+      path: '/seller/register'
+      fullPath: '/seller/register'
+      preLoaderRoute: typeof SellerRegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seller/status': {
+      id: '/seller/status'
+      path: '/seller/status'
+      fullPath: '/seller/status'
+      preLoaderRoute: typeof SellerStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.lovable/oauth/consent': {
       id: '/.lovable/oauth/consent'
       path: '/.lovable/oauth/consent'
@@ -206,6 +266,9 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  SellerDashboardRoute: SellerDashboardRoute,
+  SellerRegisterRoute: SellerRegisterRoute,
+  SellerStatusRoute: SellerStatusRoute,
   DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
