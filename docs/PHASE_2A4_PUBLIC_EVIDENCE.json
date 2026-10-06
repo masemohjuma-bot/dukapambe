@@ -1,0 +1,132 @@
+{
+  "checkedAt": "2026-10-06T14:58:37.783Z",
+  "scope": "Publishable-key requests only; no users created, emails sent, objects uploaded, migrations applied, or admin configuration changed.",
+  "configuration": {
+    "project": "kwacxbapokecpzmmjtwg",
+    "urlPresent": true,
+    "keyPresent": true,
+    "matchingUrlAliases": true,
+    "matchingKeyAliases": true,
+    "projectHostMatches": true
+  },
+  "auth": {
+    "status": 200,
+    "emailProvider": true,
+    "signupEnabled": true,
+    "emailConfirmationRequired": true
+  },
+  "results": [
+    {
+      "endpoint": "/auth/v1/health",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/auth/v1/settings",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/storage/v1/bucket",
+      "status": 200,
+      "error": null,
+      "code": null,
+      "visibleBuckets": [],
+      "note": "Anonymous visibility is not an administrative bucket inventory."
+    },
+    {
+      "endpoint": "/rest/v1/profiles?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/buyer_profiles?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/seller_profiles?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/seller_stores?select=*&limit=0",
+      "status": 401,
+      "error": null,
+      "code": "42501"
+    },
+    {
+      "endpoint": "/rest/v1/seller_onboarding?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/seller_documents?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/seller_status_history?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/seller_preferences?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/seller_notifications?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/seller_verification?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/stores?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/seller_applications?select=*&limit=0",
+      "status": 200,
+      "error": null,
+      "code": null
+    },
+    {
+      "endpoint": "/rest/v1/notifications?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    },
+    {
+      "endpoint": "/rest/v1/user_roles?select=*&limit=0",
+      "status": 404,
+      "error": null,
+      "code": "PGRST205"
+    }
+  ],
+  "unverified": [
+    "Migration history",
+    "Database catalog/RLS/indexes/constraints/triggers",
+    "Complete bucket configuration and ownership policies",
+    "Site URL and redirect allowlist",
+    "SMTP deliverability",
+    "Authenticated and email-inbox end-to-end flows"
+  ]
+}

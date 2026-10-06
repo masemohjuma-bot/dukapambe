@@ -1,3 +1,15 @@
+-- Deployment preflight added after public API probes revealed a divergent live baseline.
+-- Stop before ANY DDL; do not create parallel applications or overwrite stores.
+DO $$ DECLARE object_name text; BEGIN
+ IF to_regclass('public.seller_applications') IS NOT NULL THEN
+  RAISE EXCEPTION 'Existing seller_applications detected. Inventory and reconcile its schema; do not create a duplicate seller_onboarding table';
+ END IF;
+ FOREACH object_name IN ARRAY ARRAY['seller_onboarding','seller_documents','seller_stores','seller_preferences','seller_notifications','seller_application_comments','seller_verification'] LOOP
+  IF to_regclass('public.'||object_name) IS NOT NULL THEN
+   RAISE EXCEPTION 'Existing % detected. Reconcile live schema and migration history before onboarding deployment',object_name;
+  END IF;
+ END LOOP;
+END $$;
 -- Requires the existing Supabase Buyer/Seller baseline (not present in repository).
 CREATE TABLE public.seller_onboarding (
  id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL UNIQUE REFERENCES public.seller_profiles(user_id) ON DELETE CASCADE,

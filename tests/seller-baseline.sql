@@ -31,3 +31,8 @@ GRANT USAGE ON SCHEMA public,auth,storage TO authenticated,anon;
 GRANT SELECT,INSERT,UPDATE,DELETE ON storage.objects TO authenticated,anon;
 -- Deliberately broad preexisting policy: new restrictive policies must contain it.
 CREATE POLICY old_broad_policy ON storage.objects FOR ALL TO PUBLIC USING(true) WITH CHECK(true);
+
+CREATE FUNCTION public.is_admin() RETURNS boolean LANGUAGE sql STABLE AS $$SELECT false$$;
+GRANT SELECT,UPDATE ON public.buyer_profiles TO authenticated;
+ALTER TABLE public.buyer_profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY buyer_fixture_owner ON public.buyer_profiles FOR ALL TO authenticated USING(user_id=auth.uid()) WITH CHECK(user_id=auth.uid());

@@ -12,6 +12,8 @@ after(() => server.close());
 // Uses the application's real Supabase client with its actual absent session.
 // No authenticated user, token, API response or authentication method is mocked.
 const { guardSeller, friendlyError } = await server.ssrLoadModule("/src/lib/seller/service.ts");
+const auth = await server.ssrLoadModule("/src/lib/auth/service.ts");
+const avatar = await server.ssrLoadModule("/src/lib/auth/avatar.ts");
 test("real unauthenticated route guards preserve Login continuation", async () => {
   for (const page of ["register", "status", "dashboard"])
     await assert.rejects(
@@ -29,4 +31,22 @@ test("both Seller CTAs point to registration and failures are friendly", async (
     /Store Name is already/,
   );
   assert.match(friendlyError(new Error("Failed to fetch")), /Connection interrupted/);
+});
+
+test("real absent-session guest guards and password updates fail safely", async () => {
+  assert.equal(await auth.guestDestination("/seller/register"), null);
+  await assert.rejects(() => auth.updatePassword("a-strong-password"), /reset link has expired/);
+});
+test("Buyer avatar upload rejects oversize and unsupported content before storage", async () => {
+  await assert.rejects(
+    () =>
+      avatar.uploadBuyerAvatar(
+        new File(["x".repeat(2 * 1024 * 1024 + 1)], "large.png", { type: "image/png" }),
+      ),
+    /2 MB/,
+  );
+  await assert.rejects(
+    () => avatar.uploadBuyerAvatar(new File(["svg"], "a.svg", { type: "image/svg+xml" })),
+    /PNG or JPEG/,
+  );
 });
