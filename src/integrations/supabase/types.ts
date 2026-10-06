@@ -1,3 +1,4 @@
+import type { SellerTables, SellerFunctions } from "@/lib/seller/database";
 export type Json =
   | string
   | number
@@ -13,7 +14,7 @@ export type Database = {
     PostgrestVersion: "14.15"
   }
   public: {
-    Tables: {
+    Tables: SellerTables & {
       admin_profiles: {
         Row: {
           created_at: string
@@ -289,7 +290,7 @@ export type Database = {
     Views: {
       [_ in never]: never
     }
-    Functions: {
+    Functions: SellerFunctions & {
       begin_seller_onboarding: {
         Args: never
         Returns: {
@@ -402,6 +403,8 @@ export type Database = {
         | "MORE_INFORMATION_REQUIRED"
         | "APPROVED"
         | "REJECTED"
+        | "SUSPENDED"
+        | "BLOCKED"
       verification_status:
         | "UNVERIFIED"
         | "EMAIL_VERIFIED"
@@ -561,6 +564,8 @@ export const Constants = {
         "MORE_INFORMATION_REQUIRED",
         "APPROVED",
         "REJECTED",
+        "SUSPENDED",
+        "BLOCKED",
       ],
       verification_status: [
         "UNVERIFIED",
