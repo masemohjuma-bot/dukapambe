@@ -2,8 +2,7 @@ import { auth, defineMcp } from "@lovable.dev/mcp-js";
 import echoTool from "./tools/echo";
 import projectInfoTool from "./tools/project-info";
 
-const projectRef =
-  import.meta.env["VITE_SUPABASE_PROJECT_ID"] ?? "project-ref-unset";
+const projectRef = import.meta.env["VITE_SUPABASE_PROJECT_ID"] ?? "project-ref-unset";
 
 export default defineMcp({
   name: "dukupambe",

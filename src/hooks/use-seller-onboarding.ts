@@ -22,6 +22,7 @@ export function useSellerOnboarding() {
   const queue = useRef<Promise<unknown>>(Promise.resolve());
   const dirty = useRef(false);
   const alive = useRef(true);
+  const initialization = useRef(0);
   const apply = useCallback((app: Application) => {
     applicationRef.current = app;
     setApplication(app);
@@ -32,19 +33,32 @@ export function useSellerOnboarding() {
     setDocuments(docs);
     return app;
   }, [apply]);
-  useEffect(() => {
-    alive.current = true;
-    void startApplication()
-      .then(async (app) => {
-        if (!alive.current) return;
+  const initialize = useCallback(async () => {
+    const attempt = ++initialization.current;
+    setBusy(true);
+    setError("");
+    try {
+      const app = await startApplication();
+      const docs = await listDocuments();
+      if (alive.current && attempt === initialization.current) {
         apply(app);
         dataRef.current = app.data;
         setData(app.data);
-        setDocuments(await listDocuments());
+        setDocuments(docs);
         setStep(Math.min(app.completed_steps.length, 5));
         setSaved("Saved");
-      })
-      .catch((e) => setError(friendlyError(e)));
+      }
+      return app;
+    } catch (e) {
+      if (alive.current && attempt === initialization.current) setError(friendlyError(e));
+      throw e;
+    } finally {
+      if (alive.current && attempt === initialization.current) setBusy(false);
+    }
+  }, [apply]);
+  useEffect(() => {
+    alive.current = true;
+    void initialize().catch(() => undefined);
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
@@ -63,7 +77,7 @@ export function useSellerOnboarding() {
       subscription.unsubscribe();
       window.removeEventListener("beforeunload", beforeUnload);
     };
-  }, [apply]);
+  }, [initialize]);
   const persist = useCallback(
     (index: number, complete = false) => {
       const snapshot = { ...dataRef.current[index] };
@@ -142,5 +156,6 @@ export function useSellerOnboarding() {
     update,
     persist,
     refresh,
+    initialize,
   };
 }

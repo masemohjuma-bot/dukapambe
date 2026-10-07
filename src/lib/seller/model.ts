@@ -133,10 +133,14 @@ export function validateStep(
         errors.push("Enter valid GPS coordinates as latitude, longitude.");
     }
   }
+  const birthDate = values["date_of_birth"] ?? "";
+  const parsedBirthDate = new Date(`${birthDate}T00:00:00Z`);
   if (
     step === 1 &&
-    (!/^\d{4}-\d{2}-\d{2}$/.test(values["date_of_birth"] ?? "") ||
-      (values["date_of_birth"] ?? "") >= new Date().toISOString().slice(0, 10))
+    (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate) ||
+      Number.isNaN(parsedBirthDate.getTime()) ||
+      parsedBirthDate.toISOString().slice(0, 10) !== birthDate ||
+      birthDate >= new Date().toISOString().slice(0, 10))
   )
     errors.push("Enter a past Date of Birth.");
   if (step === 2) {

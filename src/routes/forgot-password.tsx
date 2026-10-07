@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { authError, requestPasswordReset } from "@/lib/auth/service";
+import { safeNext } from "@/lib/auth/navigation";
 export const Route = createFileRoute("/forgot-password")({
   ssr: false,
   validateSearch: (s: Record<string, unknown>) => ({
@@ -64,7 +65,10 @@ function ForgotPassword() {
             {busy ? "Sending…" : "Send reset link"}
           </button>
         </form>
-        <a href="/login" className="mt-4 inline-block text-sm text-primary hover:underline">
+        <a
+          href={`/login?next=${encodeURIComponent(safeNext(next, window.location.origin))}`}
+          className="mt-4 inline-block text-sm text-primary hover:underline"
+        >
           Return to sign in
         </a>
       </div>

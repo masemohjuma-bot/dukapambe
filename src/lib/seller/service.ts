@@ -2,6 +2,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { Application, DocumentRecord, Fields } from "./model";
 import { sellerDestination, validateUpload } from "./model";
 import { redirect } from "@tanstack/react-router";
+import { authenticatedUser } from "@/lib/auth/service";
 
 export function friendlyError(error: unknown): string {
   const message =
@@ -28,17 +29,9 @@ function check<R extends { data: unknown; error: unknown }>(result: R): R["data"
   if (result.error) throw result.error;
   return result.data;
 }
-export async function eligibility() {
-  const response = await supabase.auth.getUser();
-  if (
-    response.error &&
-    (response.error.status === 401 ||
-      response.error.code === "session_not_found" ||
-      response.error.name === "AuthSessionMissingError")
-  )
-    throw redirect({ href: "/login?next=%2Fseller%2Fregister" });
-  const user = check(response).user;
-  if (!user) throw redirect({ href: "/login?next=%2Fseller%2Fregister" });
+export async function eligibility(continuation = "/seller/register") {
+  const user = await authenticatedUser();
+  if (!user) throw redirect({ href: `/login?next=${encodeURIComponent(continuation)}` });
   const profile = check(
     await supabase.from("profiles").select("role,status").eq("id", user.id).single(),
   );
@@ -55,9 +48,7 @@ export async function eligibility() {
   return { user, profile, seller };
 }
 export async function guardSeller(page: "register" | "status" | "dashboard") {
-  const session = check(await supabase.auth.getSession()).session;
-  if (!session) throw redirect({ href: `/login?next=${encodeURIComponent(`/seller/${page}`)}` });
-  const context = await eligibility();
+  const context = await eligibility(`/seller/${page}`);
   const destination = sellerDestination(context.seller?.application_status, context.profile.status);
   if (destination === "/seller/dashboard") {
     check(await supabase.rpc("seller_activate"));

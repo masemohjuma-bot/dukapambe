@@ -1,7 +1,6 @@
 import { createFileRoute, useRouter, redirect } from "@tanstack/react-router";
 import { useState } from "react";
-import { authError, updatePassword } from "@/lib/auth/service";
-import { supabase } from "@/integrations/supabase/client";
+import { authError, updatePassword, authenticatedUser } from "@/lib/auth/service";
 import { safeNext } from "@/lib/auth/navigation";
 export const Route = createFileRoute("/reset-password")({
   ssr: false,
@@ -9,9 +8,7 @@ export const Route = createFileRoute("/reset-password")({
     next: typeof s["next"] === "string" ? s["next"] : "/",
   }),
   beforeLoad: async ({ search }) => {
-    const { data, error } = await supabase.auth.getSession();
-    if (error) throw error;
-    if (!data.session)
+    if (!(await authenticatedUser()))
       throw redirect({
         href: `/forgot-password?next=${encodeURIComponent(safeNext(search.next, window.location.origin))}`,
       });
@@ -86,7 +83,7 @@ function ResetPassword() {
           </button>
         </form>
         <a
-          href="/forgot-password"
+          href={`/forgot-password?next=${encodeURIComponent(safeNext(next, window.location.origin))}`}
           className="mt-4 inline-block text-sm text-primary hover:underline"
         >
           Request another reset link

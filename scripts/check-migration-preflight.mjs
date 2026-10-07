@@ -2,7 +2,12 @@ import { readFile, readdir } from "node:fs/promises";
 const names = (await readdir("supabase/migrations"))
   .filter((n) => /^\d{14}_.*\.sql$/.test(n))
   .sort();
-const evidence = JSON.parse(await readFile("docs/PHASE_2A4_PUBLIC_EVIDENCE.json", "utf8"));
+const evidenceFlag = process.argv.indexOf("--evidence");
+if (evidenceFlag !== -1 && !process.argv[evidenceFlag + 1])
+  throw new Error("--evidence requires a JSON file path.");
+const evidencePath =
+  evidenceFlag === -1 ? "docs/PHASE_2A4_PUBLIC_EVIDENCE.json" : process.argv[evidenceFlag + 1];
+const evidence = JSON.parse(await readFile(evidencePath, "utf8"));
 const collisions = [
   "seller_stores",
   "seller_applications",
@@ -17,6 +22,8 @@ console.log(
   JSON.stringify(
     {
       state: "BLOCKED",
+      evidenceFile: evidencePath,
+      evidenceCheckedAt: evidence.checkedAt,
       migrationFiles: names,
       appliedMigrations: "UNVERIFIED — privileged migration history required",
       collisions,
