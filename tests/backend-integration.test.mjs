@@ -119,6 +119,92 @@ test("unapproved Buyers cannot upload product/category/brand images despite broa
       ]),
     );
 });
+test("canonical artwork replacement releases the old object and blocks overwrite", async () => {
+  await asUser(a);
+  const oldPath = `${a}/logo/a.png`,
+    newPath = `${a}/logo/replacement.png`;
+  await db.query(
+    "INSERT INTO storage.objects(bucket_id,name,metadata) VALUES('seller-logos',$1,$2)",
+    [newPath, JSON.stringify({ mimetype: "image/png", size: 8 })],
+  );
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='seller-logos' AND name=$1 RETURNING *",
+        [oldPath],
+      )
+    ).rows.length,
+    0,
+  );
+  await db.query("SELECT seller_set_document('logo','seller-logos',$1,'new.png','image/png',8)", [
+    newPath,
+  ]);
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='seller-logos' AND name=$1 RETURNING *",
+        [oldPath],
+      )
+    ).rows.length,
+    1,
+  );
+  assert.equal(
+    (
+      await db.query(
+        "UPDATE storage.objects SET name=$1 WHERE bucket_id='seller-logos' AND name=$2 RETURNING *",
+        [`${a}/logo/overwrite.png`, newPath],
+      )
+    ).rows.length,
+    0,
+  );
+  await db.query("SELECT seller_set_document('logo',NULL,NULL,NULL,NULL,NULL)");
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='seller-logos' AND name=$1 RETURNING *",
+        [newPath],
+      )
+    ).rows.length,
+    1,
+  );
+});
+test("Buyer avatar replacement releases only the previous owned object", async () => {
+  await asUser(a);
+  const path = `${a}/avatar-new.png`;
+  await db.query(
+    "INSERT INTO storage.objects(bucket_id,name,metadata) VALUES('buyer-profile-images',$1,$2)",
+    [path, JSON.stringify({ mimetype: "image/png", size: 8 })],
+  );
+  await db.query("UPDATE buyer_profiles SET avatar_path=$1 WHERE user_id=$2", [path, a]);
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='buyer-profile-images' AND name=$1 RETURNING *",
+        [`${a}/avatar.png`],
+      )
+    ).rows.length,
+    1,
+  );
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='buyer-profile-images' AND name=$1 RETURNING *",
+        [path],
+      )
+    ).rows.length,
+    0,
+  );
+  await db.query("UPDATE buyer_profiles SET avatar_path=NULL WHERE user_id=$1", [a]);
+  assert.equal(
+    (
+      await db.query(
+        "DELETE FROM storage.objects WHERE bucket_id='buyer-profile-images' AND name=$1 RETURNING *",
+        [path],
+      )
+    ).rows.length,
+    1,
+  );
+});
 test("status history records transitions and is owner readable only", async () => {
   await db.exec(
     `RESET ROLE;SELECT set_config('test.user_id','',false);UPDATE seller_profiles SET application_status='REJECTED' WHERE user_id='${a}';`,

@@ -15,7 +15,8 @@
     "test:integration": "node --experimental-strip-types --test tests/auth-navigation.test.ts tests/backend-integration.test.mjs",
     "verify:supabase": "node scripts/verify-supabase-public.mjs --write",
     "verify:migrations": "node scripts/check-migration-preflight.mjs",
-    "verify:session": "node scripts/verify-live-session.mjs"
+    "verify:session": "node scripts/verify-live-session.mjs",
+    "postbuild": "node scripts/format-generated-routes.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -26,7 +26,7 @@ function SellerStatus() {
     let active = true;
     const refresh = async () => {
       try {
-        const context = await eligibility();
+        const context = await eligibility("/seller/status");
         if (!active) return;
         const destination = sellerDestination(
           context.seller?.application_status,

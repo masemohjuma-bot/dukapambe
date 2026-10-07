@@ -64,19 +64,18 @@ export async function completeAuthCallback() {
   }
 }
 export async function loadAccount() {
-  const { data, error } = await supabase.auth.getUser();
-  if (error) throw error;
-  if (!data.user) return null;
+  const user = await authenticatedUser();
+  if (!user) return null;
   const result = await supabase
     .from("profiles")
     .select("id,role,status")
-    .eq("id", data.user.id)
+    .eq("id", user.id)
     .single();
   if (result.error) throw result.error;
   return result.data;
 }
 
-export async function guestDestination(next: unknown) {
+export async function authenticatedUser() {
   const { data, error } = await supabase.auth.getSession();
   if (error) throw error;
   if (!data.session) return null;
@@ -85,7 +84,8 @@ export async function guestDestination(next: unknown) {
     if (
       verified.error.status === 401 ||
       verified.error.status === 403 ||
-      verified.error.code === "session_not_found"
+      verified.error.code === "session_not_found" ||
+      verified.error.name === "AuthSessionMissingError"
     ) {
       const cleared = await supabase.auth.signOut({ scope: "local" });
       if (cleared.error) throw cleared.error;
@@ -93,5 +93,9 @@ export async function guestDestination(next: unknown) {
     }
     throw verified.error;
   }
-  return verified.data.user ? safeNext(next, window.location.origin) : null;
+  return verified.data.user;
+}
+
+export async function guestDestination(next: unknown) {
+  return (await authenticatedUser()) ? safeNext(next, window.location.origin) : null;
 }

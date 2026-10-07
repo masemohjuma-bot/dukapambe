@@ -21,5 +21,3 @@ export default defineTool({
     structuredContent: { echoed: text },
   }),
 });
-
-

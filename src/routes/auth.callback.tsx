@@ -1,8 +1,17 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { authError, completeAuthCallback } from "@/lib/auth/service";
-export const Route = createFileRoute("/auth/callback")({ ssr: false, component: AuthCallback });
+import { safeNext } from "@/lib/auth/navigation";
+export const Route = createFileRoute("/auth/callback")({
+  ssr: false,
+  validateSearch: (s: Record<string, unknown>) => ({
+    next: typeof s["next"] === "string" ? s["next"] : "/",
+  }),
+  component: AuthCallback,
+});
 function AuthCallback() {
+  const { next } = Route.useSearch();
+  const continuation = encodeURIComponent(safeNext(next, window.location.origin));
   const router = useRouter();
   const [error, setError] = useState("");
   const started = useRef(false);
@@ -22,11 +31,14 @@ function AuthCallback() {
             <p role="alert" className="mt-4 text-sm text-destructive">
               {error}
             </p>
-            <a href="/login" className="mt-4 inline-block text-primary hover:underline">
+            <a
+              href={`/login?next=${continuation}`}
+              className="mt-4 inline-block text-primary hover:underline"
+            >
               Return to sign in
             </a>
             <a
-              href="/forgot-password"
+              href={`/forgot-password?next=${continuation}`}
               className="mt-4 ml-4 inline-block text-primary hover:underline"
             >
               Reset password

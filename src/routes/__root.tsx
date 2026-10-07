@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { useAuthRouteRefresh } from "@/hooks/use-auth-route-refresh";
 
 function NotFoundComponent() {
   return (
@@ -116,6 +117,7 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
+  useAuthRouteRefresh();
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
@@ -123,4 +125,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-

@@ -34,6 +34,7 @@ test("both Seller CTAs point to registration and failures are friendly", async (
 });
 
 test("real absent-session guest guards and password updates fail safely", async () => {
+  assert.equal(await auth.authenticatedUser(), null);
   assert.equal(await auth.guestDestination("/seller/register"), null);
   await assert.rejects(() => auth.updatePassword("a-strong-password"), /reset link has expired/);
 });

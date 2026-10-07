@@ -97,9 +97,9 @@ export function SellerWizard() {
             <button
               type="button"
               onClick={() =>
-                void (step < 5 ? h.persist(step) : h.refresh()).catch((e) =>
-                  h.setError(friendlyError(e)),
-                )
+                void (
+                  !h.application ? h.initialize() : step < 5 ? h.persist(step) : h.refresh()
+                ).catch((e) => h.setError(friendlyError(e)))
               }
               disabled={h.busy}
               className="underline"

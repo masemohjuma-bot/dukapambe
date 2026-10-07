@@ -614,7 +614,10 @@ function Index() {
 
 function FloatingBackground() {
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[linear-gradient(180deg,#f4fbf9_0%,#e7f4f2_45%,#f7f1ea_100%)]">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[linear-gradient(180deg,#f4fbf9_0%,#e7f4f2_45%,#f7f1ea_100%)]"
+    >
       <div className="dp-float-a absolute -left-24 top-[18%] size-72 rounded-full bg-[radial-gradient(circle,rgba(21,127,132,0.20),transparent_70%)] blur-2xl" />
       <div className="dp-float-b absolute right-[-6rem] top-[42%] size-96 rounded-full bg-[radial-gradient(circle,rgba(242,184,107,0.22),transparent_70%)] blur-3xl" />
       <div className="dp-float-c absolute bottom-[8%] left-[35%] size-80 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.14),transparent_70%)] blur-3xl" />

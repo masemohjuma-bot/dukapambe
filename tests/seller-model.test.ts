@@ -55,6 +55,16 @@ test("every required field is enforced", () => {
       assert.ok(validateStep(i, data, docs).length, `${i}: ${f.key}`);
     }
 });
+test("impossible calendar dates fail before the owner step can advance", () => {
+  for (const date of ["1990-02-31", "1990-13-01", "1990-00-01", "not-a-date", "9999-01-01"]) {
+    const data = structuredClone(valid);
+    data[1]!["date_of_birth"] = date;
+    assert.ok(validateStep(1, data, docs).some((e) => e.includes("Date of Birth")));
+  }
+  const data = structuredClone(valid);
+  data[1]!["date_of_birth"] = "2000-02-29";
+  assert.deepEqual(validateStep(1, data, docs), []);
+});
 test("company registration is conditional and missing documents block completion", () => {
   assert.ok(validateStep(2, valid, []).length === 3);
   const data = structuredClone(valid);
