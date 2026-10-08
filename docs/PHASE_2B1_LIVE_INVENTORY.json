@@ -1,0 +1,2873 @@
+{
+  "phase": "2B.1",
+  "capturedAt": "2026-10-08T02:38:34.285Z",
+  "scope": "Read-only catalog/configuration inventory. No application/user rows, credentials, tokens or document objects were read. No SQL writes executed.",
+  "configuredSupabaseProjectRef": "kwacxbapokecpzmmjtwg",
+  "linkedLovableProject": {
+    "id": "603c4c27-62ea-43d2-ad97-aeb31370c72e",
+    "name": "Dukapambe",
+    "mappingSource": "Existing repository README and supabase/config.toml",
+    "enabled": true,
+    "stack": "supabase"
+  },
+  "connection": {
+    "database": "postgres",
+    "role": "postgres",
+    "authSchema": true,
+    "storageSchema": true,
+    "projectRefSqlSetting": null,
+    "supabaseUrlSqlSetting": null,
+    "note": "Project ref comes from repository configuration; the SQL connection does not independently expose its Supabase ref."
+  },
+  "sections": {
+    "schemas": [
+      {
+        "name": "auth"
+      },
+      {
+        "name": "extensions"
+      },
+      {
+        "name": "graphql"
+      },
+      {
+        "name": "graphql_public"
+      },
+      {
+        "name": "information_schema"
+      },
+      {
+        "name": "private"
+      },
+      {
+        "name": "public"
+      },
+      {
+        "name": "realtime"
+      },
+      {
+        "name": "storage"
+      },
+      {
+        "name": "supabase_migrations"
+      },
+      {
+        "name": "vault"
+      }
+    ],
+    "tables": [
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "audit_log_entries",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "custom_oauth_providers",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "flow_state",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "identities",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "instances",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "mfa_amr_claims",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "mfa_challenges",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "mfa_factors",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "mfa_recovery_code_sets",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "mfa_recovery_codes",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "oauth_authorizations",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "oauth_client_states",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "oauth_clients",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "oauth_consents",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "one_time_tokens",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "refresh_tokens",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "saml_providers",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "saml_relay_states",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "schema_migrations",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "scim_tokens",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "scim_users",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "sessions",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "sso_domains",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "sso_providers",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "users",
+        "rls": true,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "webauthn_challenges",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "webauthn_credentials",
+        "rls": false,
+        "schema": "auth"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "admin_profiles",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "affiliate_profiles",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "buyer_profiles",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "profiles",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_application_documents",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_applications",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_notifications",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_preferences",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_profiles",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "seller_stores",
+        "rls": true,
+        "schema": "public"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "buckets",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "buckets_analytics",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "buckets_vectors",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "migrations",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "objects",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "s3_multipart_uploads",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "s3_multipart_uploads_parts",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "vector_indexes",
+        "rls": true,
+        "schema": "storage"
+      },
+      {
+        "forced_rls": false,
+        "kind": "r",
+        "name": "schema_migrations",
+        "rls": false,
+        "schema": "supabase_migrations"
+      }
+    ],
+    "columns": [
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "'Platform'::text",
+        "column_name": "department",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "is_super_admin",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "false",
+        "column_name": "emergency_access",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "admin_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "referral_code",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "invited_by_code",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "10",
+        "column_name": "invitation_limit",
+        "data_type": "integer",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "int4"
+      },
+      {
+        "column_default": "'PENDING'::affiliate_account_status",
+        "column_name": "status",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "affiliate_account_status"
+      },
+      {
+        "column_default": null,
+        "column_name": "phone_number",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "county",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "affiliate_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "phone_number",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "county",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "marketing_consent",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "'Kenya'::text",
+        "column_name": "country",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "profile_image_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "terms_accepted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "privacy_accepted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "buyer_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "email",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "full_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'BUYER'::app_role",
+        "column_name": "role",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "app_role"
+      },
+      {
+        "column_default": "'PENDING_VERIFICATION'::account_status",
+        "column_name": "status",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "account_status"
+      },
+      {
+        "column_default": null,
+        "column_name": "membership",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "YES",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "membership_plan"
+      },
+      {
+        "column_default": "'UNVERIFIED'::verification_status",
+        "column_name": "verification_status",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "verification_status"
+      },
+      {
+        "column_default": "0",
+        "column_name": "profile_completion",
+        "data_type": "smallint",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "int2"
+      },
+      {
+        "column_default": null,
+        "column_name": "last_login",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "gen_random_uuid()",
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "application_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "document_type",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'seller-documents'::text",
+        "column_name": "bucket_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "storage_path",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "file_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "mime_type",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "file_size_bytes",
+        "data_type": "bigint",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "int8"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_application_documents",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "gen_random_uuid()",
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "('DSA-'::text || upper(substr(replace((gen_random_uuid())::text, '-'::text, ''::text), 1, 10)))",
+        "column_name": "application_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "1",
+        "column_name": "current_step",
+        "data_type": "smallint",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "int2"
+      },
+      {
+        "column_default": "'{}'::smallint[]",
+        "column_name": "completed_steps",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "_int2"
+      },
+      {
+        "column_default": "0",
+        "column_name": "progress_percent",
+        "data_type": "smallint",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "int2"
+      },
+      {
+        "column_default": "'DRAFT'::seller_application_status",
+        "column_name": "status",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "seller_application_status"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_type",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_category",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "business_registration_number",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'Kenya'::text",
+        "column_name": "country",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "region",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "district",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "physical_address",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_description",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "years_in_business",
+        "data_type": "smallint",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "int2"
+      },
+      {
+        "column_default": null,
+        "column_name": "website",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_email",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_phone",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "gps_latitude",
+        "data_type": "numeric",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "numeric"
+      },
+      {
+        "column_default": null,
+        "column_name": "gps_longitude",
+        "data_type": "numeric",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "numeric"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_full_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_nationality",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_identity_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "owner_date_of_birth",
+        "data_type": "date",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "date"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_gender",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_phone",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "owner_alternative_phone",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_email",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_residential_address",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "bank_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "bank_account_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "bank_account_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "bank_branch",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "bank_swift_code",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "mobile_money_provider",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "mobile_money_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "preferred_payment_method",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "store_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "store_slug",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "store_logo_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "store_banner_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "store_description",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'{}'::jsonb",
+        "column_name": "business_hours",
+        "data_type": "jsonb",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "jsonb"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "delivery_options",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "pickup_available",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "shipping_regions",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "information_confirmed",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "false",
+        "column_name": "seller_terms_accepted",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": null,
+        "column_name": "seller_terms_accepted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "admin_comments",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "seller_id",
+        "data_type": "uuid",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "store_id",
+        "data_type": "uuid",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "submitted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "resubmitted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_applications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "gen_random_uuid()",
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "seller_user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "notification_type",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "title",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "message",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "is_read",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_notifications",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "seller_user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "true",
+        "column_name": "email_notifications",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "true",
+        "column_name": "sms_notifications",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "true",
+        "column_name": "new_message_notifications",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "true",
+        "column_name": "product_notifications",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_preferences",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_type",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "owner_name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "phone_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "whatsapp_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "county",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "district",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "ward",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_address",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "national_id",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "tin_number",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_registration_number",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "business_logo_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "business_cover_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "business_description",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'{}'::jsonb",
+        "column_name": "operating_hours",
+        "data_type": "jsonb",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "jsonb"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "delivery_areas",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "payment_methods",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": null,
+        "column_name": "membership_plan",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "membership_plan"
+      },
+      {
+        "column_default": "'DRAFT'::seller_application_status",
+        "column_name": "application_status",
+        "data_type": "USER-DEFINED",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "seller_application_status"
+      },
+      {
+        "column_default": "false",
+        "column_name": "terms_accepted",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": null,
+        "column_name": "terms_accepted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "0",
+        "column_name": "profile_completion",
+        "data_type": "smallint",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "int2"
+      },
+      {
+        "column_default": null,
+        "column_name": "submitted_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "approved_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": null,
+        "column_name": "approved_by",
+        "data_type": "uuid",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "('SLR-'::text || upper(substr(replace((gen_random_uuid())::text, '-'::text, ''::text), 1, 10)))",
+        "column_name": "seller_number",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "verification_badges",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": null,
+        "column_name": "application_date",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "YES",
+        "table_name": "seller_profiles",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "gen_random_uuid()",
+        "column_name": "id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "seller_user_id",
+        "data_type": "uuid",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "uuid"
+      },
+      {
+        "column_default": null,
+        "column_name": "name",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "slug",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "logo_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": null,
+        "column_name": "banner_path",
+        "data_type": "text",
+        "is_nullable": "YES",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "''::text",
+        "column_name": "description",
+        "data_type": "text",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "text"
+      },
+      {
+        "column_default": "'{}'::jsonb",
+        "column_name": "business_hours",
+        "data_type": "jsonb",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "jsonb"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "delivery_options",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": "false",
+        "column_name": "pickup_available",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "'{}'::text[]",
+        "column_name": "shipping_regions",
+        "data_type": "ARRAY",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "_text"
+      },
+      {
+        "column_default": "true",
+        "column_name": "is_active",
+        "data_type": "boolean",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "bool"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "created_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      },
+      {
+        "column_default": "now()",
+        "column_name": "updated_at",
+        "data_type": "timestamp with time zone",
+        "is_nullable": "NO",
+        "table_name": "seller_stores",
+        "table_schema": "public",
+        "udt_name": "timestamptz"
+      }
+    ],
+    "history": [
+      {
+        "migration_table": "supabase_migrations.schema_migrations"
+      }
+    ],
+    "buckets": [
+      {
+        "allowed_mime_types": [
+          "image/jpeg",
+          "image/png",
+          "image/webp"
+        ],
+        "file_size_limit": 5242880,
+        "id": "profile-photos",
+        "name": "profile-photos",
+        "public": true
+      },
+      {
+        "allowed_mime_types": [
+          "image/jpeg",
+          "image/png",
+          "image/webp"
+        ],
+        "file_size_limit": 10485760,
+        "id": "seller-cover-images",
+        "name": "seller-cover-images",
+        "public": true
+      },
+      {
+        "allowed_mime_types": [
+          "application/pdf",
+          "image/png",
+          "image/jpeg"
+        ],
+        "file_size_limit": 10485760,
+        "id": "seller-documents",
+        "name": "seller-documents",
+        "public": false
+      },
+      {
+        "allowed_mime_types": [
+          "image/jpeg",
+          "image/png",
+          "image/webp",
+          "image/svg+xml"
+        ],
+        "file_size_limit": 5242880,
+        "id": "seller-logos",
+        "name": "seller-logos",
+        "public": true
+      },
+      {
+        "allowed_mime_types": [
+          "image/png",
+          "image/jpeg"
+        ],
+        "file_size_limit": 10485760,
+        "id": "store-banners",
+        "name": "store-banners",
+        "public": true
+      },
+      {
+        "allowed_mime_types": [
+          "image/png",
+          "image/jpeg"
+        ],
+        "file_size_limit": 5242880,
+        "id": "store-logos",
+        "name": "store-logos",
+        "public": true
+      },
+      {
+        "allowed_mime_types": [
+          "image/jpeg",
+          "image/png",
+          "application/pdf"
+        ],
+        "file_size_limit": 10485760,
+        "id": "verification-documents",
+        "name": "verification-documents",
+        "public": false
+      }
+    ],
+    "extensions": [
+      {
+        "extname": "pg_stat_statements",
+        "extversion": "1.11",
+        "schema": "extensions"
+      },
+      {
+        "extname": "pgcrypto",
+        "extversion": "1.3",
+        "schema": "extensions"
+      },
+      {
+        "extname": "plpgsql",
+        "extversion": "1.0",
+        "schema": "pg_catalog"
+      },
+      {
+        "extname": "supabase_vault",
+        "extversion": "0.3.1",
+        "schema": "vault"
+      },
+      {
+        "extname": "uuid-ossp",
+        "extversion": "1.1",
+        "schema": "extensions"
+      }
+    ],
+    "migrations": [
+      {
+        "name": "c3253637-4e08-46b4-9b1f-04db291788f3",
+        "statement_count": 1,
+        "statements_md5": "55c22dbe5ba438bcc7ce3cdb1b683f56",
+        "version": "20260825003236"
+      },
+      {
+        "name": "80e2a665-1a9e-43bb-b58b-4b44f607f285",
+        "statement_count": 1,
+        "statements_md5": "4914af408dd01ca25a2209c9ba7c8c8f",
+        "version": "20260825003251"
+      }
+    ],
+    "policies": [
+      {
+        "cmd": "DELETE",
+        "permissive": "PERMISSIVE",
+        "policyname": "admin_profiles_delete_super_admin",
+        "qual": "is_super_admin()",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "admin_profiles",
+        "with_check": null
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "admin_profiles_insert_super_admin",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "admin_profiles",
+        "with_check": "is_super_admin()"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "admin_profiles_select_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "admin_profiles",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "admin_profiles_update_super_admin",
+        "qual": "is_super_admin()",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "admin_profiles",
+        "with_check": "is_super_admin()"
+      },
+      {
+        "cmd": "ALL",
+        "permissive": "PERMISSIVE",
+        "policyname": "affiliate_profiles_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "affiliate_profiles",
+        "with_check": "((user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "ALL",
+        "permissive": "PERMISSIVE",
+        "policyname": "buyer_profiles_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "buyer_profiles",
+        "with_check": "((user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "profiles_select_own_or_admin",
+        "qual": "((id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "profiles",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "profiles_update_own_or_admin",
+        "qual": "((id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "profiles",
+        "with_check": "((id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "DELETE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_delete_editable_or_admin",
+        "qual": "(is_admin() OR (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE ((application.id = seller_application_documents.application_id) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_application_documents",
+        "with_check": null
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_insert_editable_or_admin",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_application_documents",
+        "with_check": "(is_admin() OR ((user_id = auth.uid()) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE ((application.id = seller_application_documents.application_id) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status])))))))"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_select_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_application_documents",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_update_editable_or_admin",
+        "qual": "(is_admin() OR (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE ((application.id = seller_application_documents.application_id) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_application_documents",
+        "with_check": "(is_admin() OR ((user_id = auth.uid()) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE ((application.id = seller_application_documents.application_id) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status])))))))"
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_applications_insert_own_or_admin",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_applications",
+        "with_check": "(is_admin() OR ((user_id = auth.uid()) AND (EXISTS ( SELECT 1\n   FROM profiles profile\n  WHERE ((profile.id = auth.uid()) AND (profile.role = 'BUYER'::app_role) AND (profile.status = 'ACTIVE'::account_status))))))"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_applications_select_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_applications",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_applications_update_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_applications",
+        "with_check": "((user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_notifications_own_or_admin",
+        "qual": "((seller_user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_notifications",
+        "with_check": null
+      },
+      {
+        "cmd": "ALL",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_preferences_own_or_admin",
+        "qual": "((seller_user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_preferences",
+        "with_check": "((seller_user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_profiles_insert_own_or_admin",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_profiles",
+        "with_check": "((user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_profiles_select_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_profiles",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_profiles_update_own_or_admin",
+        "qual": "((user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_profiles",
+        "with_check": "((user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_stores_owner_or_admin_update",
+        "qual": "((seller_user_id = auth.uid()) OR is_admin())",
+        "roles": "{authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_stores",
+        "with_check": "((seller_user_id = auth.uid()) OR is_admin())"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_stores_public_read",
+        "qual": "(is_active OR (seller_user_id = auth.uid()) OR is_admin())",
+        "roles": "{anon,authenticated}",
+        "schemaname": "public",
+        "tablename": "seller_stores",
+        "with_check": null
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "public_profile_media_read",
+        "qual": "(bucket_id = ANY (ARRAY['profile-photos'::text, 'seller-logos'::text, 'seller-cover-images'::text]))",
+        "roles": "{public}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "DELETE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_storage_delete",
+        "qual": "((bucket_id = 'seller-documents'::text) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_storage_insert",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((bucket_id = 'seller-documents'::text) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_storage_select",
+        "qual": "((bucket_id = 'seller-documents'::text) AND (((storage.foldername(name))[1] = (auth.uid())::text) OR is_admin()))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "seller_documents_storage_update",
+        "qual": "((bucket_id = 'seller-documents'::text) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((bucket_id = 'seller-documents'::text) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))"
+      },
+      {
+        "cmd": "DELETE",
+        "permissive": "PERMISSIVE",
+        "policyname": "store_assets_owner_delete",
+        "qual": "((bucket_id = ANY (ARRAY['store-logos'::text, 'store-banners'::text])) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "store_assets_owner_insert",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((bucket_id = ANY (ARRAY['store-logos'::text, 'store-banners'::text])) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))"
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "store_assets_owner_update",
+        "qual": "((bucket_id = ANY (ARRAY['store-logos'::text, 'store-banners'::text])) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((bucket_id = ANY (ARRAY['store-logos'::text, 'store-banners'::text])) AND ((storage.foldername(name))[1] = (auth.uid())::text) AND (EXISTS ( SELECT 1\n   FROM seller_applications application\n  WHERE (((application.id)::text = (storage.foldername(objects.name))[2]) AND (application.user_id = auth.uid()) AND (application.status = ANY (ARRAY['DRAFT'::seller_application_status, 'REJECTED'::seller_application_status, 'MORE_INFORMATION_REQUIRED'::seller_application_status]))))))"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "store_assets_public_select",
+        "qual": "(bucket_id = ANY (ARRAY['store-logos'::text, 'store-banners'::text]))",
+        "roles": "{anon,authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "DELETE",
+        "permissive": "PERMISSIVE",
+        "policyname": "users_delete_own_media",
+        "qual": "((owner_id = (auth.uid())::text) AND (bucket_id = ANY (ARRAY['profile-photos'::text, 'seller-logos'::text, 'seller-cover-images'::text, 'verification-documents'::text])))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      },
+      {
+        "cmd": "INSERT",
+        "permissive": "PERMISSIVE",
+        "policyname": "users_insert_own_media",
+        "qual": null,
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((bucket_id = ANY (ARRAY['profile-photos'::text, 'seller-logos'::text, 'seller-cover-images'::text, 'verification-documents'::text])) AND ((storage.foldername(name))[1] = (auth.uid())::text))"
+      },
+      {
+        "cmd": "UPDATE",
+        "permissive": "PERMISSIVE",
+        "policyname": "users_update_own_media",
+        "qual": "((owner_id = (auth.uid())::text) AND (bucket_id = ANY (ARRAY['profile-photos'::text, 'seller-logos'::text, 'seller-cover-images'::text, 'verification-documents'::text])))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": "((storage.foldername(name))[1] = (auth.uid())::text)"
+      },
+      {
+        "cmd": "SELECT",
+        "permissive": "PERMISSIVE",
+        "policyname": "verification_documents_read_own_or_admin",
+        "qual": "((bucket_id = 'verification-documents'::text) AND (((storage.foldername(name))[1] = (auth.uid())::text) OR is_admin()))",
+        "roles": "{authenticated}",
+        "schemaname": "storage",
+        "tablename": "objects",
+        "with_check": null
+      }
+    ],
+    "constraints": [
+      {
+        "definition": "PRIMARY KEY (user_id)",
+        "name": "admin_profiles_pkey",
+        "schema": "public",
+        "table_name": "admin_profiles",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON UPDATE CASCADE ON DELETE CASCADE",
+        "name": "admin_profiles_user_id_fkey",
+        "schema": "public",
+        "table_name": "admin_profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "CHECK ((invitation_limit >= 0))",
+        "name": "affiliate_profiles_invitation_limit_check",
+        "schema": "public",
+        "table_name": "affiliate_profiles",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (user_id)",
+        "name": "affiliate_profiles_pkey",
+        "schema": "public",
+        "table_name": "affiliate_profiles",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (referral_code)",
+        "name": "affiliate_profiles_referral_code_key",
+        "schema": "public",
+        "table_name": "affiliate_profiles",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON UPDATE CASCADE ON DELETE CASCADE",
+        "name": "affiliate_profiles_user_id_fkey",
+        "schema": "public",
+        "table_name": "affiliate_profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (user_id)",
+        "name": "buyer_profiles_pkey",
+        "schema": "public",
+        "table_name": "buyer_profiles",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON UPDATE CASCADE ON DELETE CASCADE",
+        "name": "buyer_profiles_user_id_fkey",
+        "schema": "public",
+        "table_name": "buyer_profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (id) REFERENCES auth.users(id) ON UPDATE CASCADE ON DELETE CASCADE",
+        "name": "profiles_id_fkey",
+        "schema": "public",
+        "table_name": "profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "profiles_pkey",
+        "schema": "public",
+        "table_name": "profiles",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((profile_completion >= 0) AND (profile_completion <= 100)))",
+        "name": "profiles_profile_completion_check",
+        "schema": "public",
+        "table_name": "profiles",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (application_id, document_type)",
+        "name": "seller_application_documents_application_id_document_type_key",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (application_id) REFERENCES seller_applications(id) ON DELETE CASCADE",
+        "name": "seller_application_documents_application_id_fkey",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "CHECK ((document_type = ANY (ARRAY['BUSINESS_LICENSE'::text, 'TIN_CERTIFICATE'::text, 'NATIONAL_ID'::text, 'PASSPORT'::text, 'COMPANY_REGISTRATION_CERTIFICATE'::text, 'PROOF_OF_ADDRESS'::text])))",
+        "name": "seller_application_documents_document_type_check",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((file_size_bytes >= 1) AND (file_size_bytes <= 10485760)))",
+        "name": "seller_application_documents_file_size_bytes_check",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK ((mime_type = ANY (ARRAY['application/pdf'::text, 'image/png'::text, 'image/jpeg'::text])))",
+        "name": "seller_application_documents_mime_type_check",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "seller_application_documents_pkey",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON DELETE CASCADE",
+        "name": "seller_application_documents_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_application_documents",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (application_number)",
+        "name": "seller_applications_application_number_key",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((current_step >= 1) AND (current_step <= 6)))",
+        "name": "seller_applications_current_step_check",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "seller_applications_pkey",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((progress_percent >= 0) AND (progress_percent <= 100)))",
+        "name": "seller_applications_progress_percent_check",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (seller_id) REFERENCES seller_profiles(user_id) ON DELETE SET NULL",
+        "name": "seller_applications_seller_id_fkey",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (store_id) REFERENCES seller_stores(id) ON DELETE SET NULL",
+        "name": "seller_applications_store_id_fkey",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON DELETE CASCADE",
+        "name": "seller_applications_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (user_id)",
+        "name": "seller_applications_user_id_key",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((years_in_business >= 0) AND (years_in_business <= 200)))",
+        "name": "seller_applications_years_in_business_check",
+        "schema": "public",
+        "table_name": "seller_applications",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "seller_notifications_pkey",
+        "schema": "public",
+        "table_name": "seller_notifications",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (seller_user_id) REFERENCES seller_profiles(user_id) ON DELETE CASCADE",
+        "name": "seller_notifications_seller_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_notifications",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (seller_user_id)",
+        "name": "seller_preferences_pkey",
+        "schema": "public",
+        "table_name": "seller_preferences",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (seller_user_id) REFERENCES seller_profiles(user_id) ON DELETE CASCADE",
+        "name": "seller_preferences_seller_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_preferences",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((application_status = 'DRAFT'::seller_application_status) OR (membership_plan IS NOT NULL)))",
+        "name": "seller_membership_required_on_submit",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (approved_by) REFERENCES profiles(id) ON UPDATE CASCADE ON DELETE SET NULL",
+        "name": "seller_profiles_approved_by_fkey",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (user_id)",
+        "name": "seller_profiles_pkey",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((profile_completion >= 0) AND (profile_completion <= 100)))",
+        "name": "seller_profiles_profile_completion_check",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (seller_number)",
+        "name": "seller_profiles_seller_number_key",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (user_id) REFERENCES profiles(id) ON UPDATE CASCADE ON DELETE CASCADE",
+        "name": "seller_profiles_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((application_status = 'DRAFT'::seller_application_status) OR terms_accepted))",
+        "name": "seller_terms_required_on_submit",
+        "schema": "public",
+        "table_name": "seller_profiles",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "seller_stores_pkey",
+        "schema": "public",
+        "table_name": "seller_stores",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (seller_user_id) REFERENCES seller_profiles(user_id) ON DELETE CASCADE",
+        "name": "seller_stores_seller_user_id_fkey",
+        "schema": "public",
+        "table_name": "seller_stores",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (seller_user_id)",
+        "name": "seller_stores_seller_user_id_key",
+        "schema": "public",
+        "table_name": "seller_stores",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (slug)",
+        "name": "seller_stores_slug_key",
+        "schema": "public",
+        "table_name": "seller_stores",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((lifecycle_configuration IS NULL) = (lifecycle_configuration_generation IS NULL)))",
+        "name": "buckets_lifecycle_configuration_pair_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((lifecycle_configuration IS NULL) OR ((jsonb_typeof(lifecycle_configuration) = 'object'::text) AND (lifecycle_configuration ? 'rules'::text) AND\nCASE\n    WHEN (jsonb_typeof((lifecycle_configuration -> 'rules'::text)) = 'array'::text) THEN ((jsonb_array_length((lifecycle_configuration -> 'rules'::text)) >= 1) AND (jsonb_array_length((lifecycle_configuration -> 'rules'::text)) <= 1000))\n    ELSE false\nEND)))",
+        "name": "buckets_lifecycle_configuration_shape_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((type = 'STANDARD'::storage.buckettype) OR ((lifecycle_configuration IS NULL) AND (lifecycle_configuration_generation IS NULL))))",
+        "name": "buckets_lifecycle_configuration_standard_only_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "buckets_pkey",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "CHECK ((versioning_status = 'DISABLED'::text))",
+        "name": "buckets_versioning_dark_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK (((type = 'STANDARD'::storage.buckettype) OR (versioning_status = 'DISABLED'::text)))",
+        "name": "buckets_versioning_standard_only_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "CHECK ((versioning_status = ANY (ARRAY['DISABLED'::text, 'ENABLED'::text, 'SUSPENDED'::text])))",
+        "name": "buckets_versioning_status_check",
+        "schema": "storage",
+        "table_name": "buckets",
+        "type": "c",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "buckets_analytics_pkey",
+        "schema": "storage",
+        "table_name": "buckets_analytics",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "buckets_vectors_pkey",
+        "schema": "storage",
+        "table_name": "buckets_vectors",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "UNIQUE (name)",
+        "name": "migrations_name_key",
+        "schema": "storage",
+        "table_name": "migrations",
+        "type": "u",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "migrations_pkey",
+        "schema": "storage",
+        "table_name": "migrations",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (bucket_id) REFERENCES storage.buckets(id)",
+        "name": "objects_bucketId_fkey",
+        "schema": "storage",
+        "table_name": "objects",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "objects_pkey",
+        "schema": "storage",
+        "table_name": "objects",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (bucket_id) REFERENCES storage.buckets(id)",
+        "name": "s3_multipart_uploads_bucket_id_fkey",
+        "schema": "storage",
+        "table_name": "s3_multipart_uploads",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "s3_multipart_uploads_pkey",
+        "schema": "storage",
+        "table_name": "s3_multipart_uploads",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (bucket_id) REFERENCES storage.buckets(id)",
+        "name": "s3_multipart_uploads_parts_bucket_id_fkey",
+        "schema": "storage",
+        "table_name": "s3_multipart_uploads_parts",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "s3_multipart_uploads_parts_pkey",
+        "schema": "storage",
+        "table_name": "s3_multipart_uploads_parts",
+        "type": "p",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (upload_id) REFERENCES storage.s3_multipart_uploads(id) ON DELETE CASCADE",
+        "name": "s3_multipart_uploads_parts_upload_id_fkey",
+        "schema": "storage",
+        "table_name": "s3_multipart_uploads_parts",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "FOREIGN KEY (bucket_id) REFERENCES storage.buckets_vectors(id)",
+        "name": "vector_indexes_bucket_id_fkey",
+        "schema": "storage",
+        "table_name": "vector_indexes",
+        "type": "f",
+        "validated": true
+      },
+      {
+        "definition": "PRIMARY KEY (id)",
+        "name": "vector_indexes_pkey",
+        "schema": "storage",
+        "table_name": "vector_indexes",
+        "type": "p",
+        "validated": true
+      }
+    ]
+  },
+  "blockedQueries": {
+    "indexes": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 58 minutes. Workspace plans and billing: https://lovable.dev/settings/billing.",
+    "triggers": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 58 minutes. Workspace plans and billing: https://lovable.dev/settings/billing.",
+    "functions": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 58 minutes. Workspace plans and billing: https://lovable.dev/settings/billing.",
+    "views": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 57 minutes. Workspace plans and billing: https://lovable.dev/settings/billing.",
+    "enums": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 57 minutes. Workspace plans and billing: https://lovable.dev/settings/billing.",
+    "grants": "Your free-plan MCP database action limit was reached. This query wasn't executed. You can retry in 58 minutes. Workspace plans and billing: https://lovable.dev/settings/billing."
+  },
+  "duplicateExactConstraintDefinitions": [],
+  "duplicateExactPolicyDefinitions": [],
+  "authPublicProbe": {
+    "checkedAt": "2026-10-08T02:34:08.881Z",
+    "healthStatus": 200,
+    "settingsStatus": 200,
+    "emailProvider": true,
+    "signupEnabled": true,
+    "emailConfirmationRequired": true,
+    "matchingUrlAliases": true,
+    "matchingKeyAliases": true,
+    "projectHostMatches": true,
+    "note": "Observed from real public probe; management configuration and actual signup/email/reset behavior remain unverified."
+  },
+  "access": {
+    "managementTokenAvailable": false,
+    "databasePasswordAvailable": false,
+    "designatedBuyerCredentialsAvailable": false
+  },
+  "changesApplied": [],
+  "gate": "BLOCKED"
+}
