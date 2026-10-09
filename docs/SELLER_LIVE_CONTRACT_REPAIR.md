@@ -16,9 +16,16 @@ Production build: PASS.
 TypeScript: PASS.
 Changed source/test ESLint: PASS.
 Authentication/guest-route/Seller contract tests: 12/12 PASS (real absent-session guards and pure contract/validation tests; no simulated authenticated success).
-Full repository ESLint: FAIL — existing baseline violations remain; see final verification report for count.
+Full repository ESLint: FAIL — 486 existing errors and 6 warnings outside changed source/test files.
 
 ## Remaining verification
-Live preview deployment, Buyer-owned draft creation/resume and Seller dashboard denial must be verified after deployment. Completing the application requires the user's business/owner/payment information and real document uploads; no invented documents or business records are submitted. Email confirmation, recovery inbox delivery, logout/login, file replacement/deletion, submission and externally approved Seller access remain unverified until actually exercised. The existing backend provisions Seller profile/store/preferences/notifications on APPROVAL, not submission. No approval action is part of this phase. Some requested bucket names differ from existing backend bucket names; this repair uses the verified existing configuration rather than creating duplicates.
+Live preview was explicitly updated after merging PR #5. Verified in the signed-in browser: Become Seller opens `/seller/register`; a real Buyer-owned draft loads with Saved status; Save & resume later completes and returns to landing intentionally; Become Seller resumes the saved draft; later required steps are disabled; requesting `/seller/dashboard` as this unapproved Buyer redirects to onboarding, without a landing fallback. Completing the application requires the user's business/owner/payment information and real document uploads; no invented documents or business records are submitted. Email confirmation, recovery inbox delivery, logout/login, file replacement/deletion, submission and externally approved Seller access remain unverified until actually exercised. The existing backend provisions Seller profile/store/preferences/notifications on APPROVAL, not submission. No approval action is part of this phase. Some requested bucket names differ from existing backend bucket names; this repair uses the verified existing configuration rather than creating duplicates.
 
 WORKFLOW STATUS: PARTIAL
+
+## Commits
+Implementation: `4b3105e02f3800a877831f0375698154a331c76e`.
+Merged into connected main: `f9ed0b7560b4823466d57e622f3176350d16beb6` (PR #5).
+
+## Next manual step
+The existing authenticated browser is left on Business information. Enter your actual business details and choose Save & continue. Owner/payment data, documents and acceptance must be provided by the account holder. Full submission and the rest of the journey remain unverified; no claim of a fully production-ready workflow is made.
