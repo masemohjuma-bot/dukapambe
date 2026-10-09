@@ -1,5 +1,7 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
+import { safeNext, authCallbackUrl } from "@/lib/auth/navigation";
+import { authError, guestDestination } from "@/lib/auth/service";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/signup")({
@@ -8,22 +10,14 @@ export const Route = createFileRoute("/signup")({
     next: typeof s["next"] === "string" ? s["next"] : "/",
   }),
   beforeLoad: async ({ search }) => {
-    const { data } = await supabase.auth.getSession();
-    if (data.session) {
-      throw redirect({ href: sanitizeNext(search["next"]) });
-    }
+    const destination = await guestDestination(search.next);
+    if (destination) throw redirect({ href: destination });
   },
   component: Signup,
 });
 
-function sanitizeNext(next: string): string {
-  try {
-    const url = new URL(next, window.location.origin);
-    if (url.origin !== window.location.origin) return "/";
-    return url.pathname + url.search;
-  } catch {
-    return "/";
-  }
+function sanitizeNext(next: string) {
+  return safeNext(next, window.location.origin);
 }
 
 function Signup() {
@@ -31,6 +25,7 @@ function Signup() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmationSent, setConfirmationSent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -38,19 +33,20 @@ function Signup() {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${window.location.origin}/login?next=${encodeURIComponent(sanitizeNext(next))}`,
-      },
-    });
-    if (error) {
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+        options: { emailRedirectTo: authCallbackUrl(next, window.location.origin) },
+      });
+      if (error) throw error;
+      if (data.session) await router.navigate({ href: sanitizeNext(next) });
+      else setConfirmationSent(true);
+    } catch (e) {
+      setError(authError(e));
+    } finally {
       setBusy(false);
-      setError(error.message);
-      return;
     }
-    router.navigate({ href: sanitizeNext(next) });
   }
 
   return (
@@ -59,36 +55,33 @@ function Signup() {
         <h1 className="text-2xl font-semibold tracking-tight text-card-foreground">
           Create account
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Sign up to use Dukapambe.
-        </p>
+        <p className="mt-2 text-sm text-muted-foreground">Sign up to use Dukapambe.</p>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-card-foreground"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-card-foreground">
               Email
             </label>
             <input
               id="email"
               type="email"
+              autoComplete="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setConfirmationSent(false);
+              }}
               required
               className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-card-foreground"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-card-foreground">
               Password
             </label>
             <input
               id="password"
               type="password"
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -100,14 +93,26 @@ function Signup() {
               {error}
             </p>
           )}
+          {confirmationSent && (
+            <p role="status" className="text-sm text-muted-foreground">
+              Check your email to confirm your account. The verification link will continue to your
+              requested page.
+            </p>
+          )}
           <button
             type="submit"
-            disabled={busy}
+            disabled={busy || confirmationSent}
             className="inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
           >
             {busy ? "Creating account..." : "Sign up"}
           </button>
         </form>
+        <a
+          href={`/login?next=${encodeURIComponent(sanitizeNext(next))}`}
+          className="mt-4 inline-block text-sm text-primary hover:underline"
+        >
+          Already confirmed? Sign in
+        </a>
       </div>
     </main>
   );
