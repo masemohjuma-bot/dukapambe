@@ -68,4 +68,33 @@ is not safe. Seller routing and backend reconciliation remain unresolved.
 - Deployment/sync of this repair: must be checked separately after the commit;
   this preparation report is not deployment evidence.
 
+## Executed deployment and live public-route verification
+
+PR #4 was merged normally into `main`, preserving published history.
+Implementation commit: `8c3ce1e3dabe24a50543adf18f4917ca4fad6673`.
+Merge commit: `76dc5bb5b7c28620b39e9d4764971b25333c6727`.
+
+Lovable received both commits but initially showed "Preview is out of date".
+The editor's Update preview action was executed. Project metadata subsequently
+reported the merge commit, and the refreshed live preview showed the new
+Jisajili (Signup) link.
+
+Actual browser checks passed:
+
+1. Landing header exposes Signup and Sign in.
+2. Clicking Signup reaches `/signup?next=%2F` and displays Create account.
+3. Signup's sign-in link reaches `/login?next=%2F` and remains there as a guest.
+4. Forgot password reaches its form without a landing redirect.
+5. Visiting the callback without a valid link shows an explicit invalid/expired
+   link error with recovery links, and stays on the callback page.
+
+These are live public-route checks, not authenticated end-to-end tests.
+The earlier "no usable signup entry" defect is repaired in the preview.
+Successful account creation, inbox confirmation, login, persistence, logout,
+password recovery and Seller onboarding remain unverified.
+
+Production readiness remains PARTIAL. Full-repository lint and the separate
+Seller routing/live-schema incompatibilities remain unresolved. The published
+production site was not republished; only the development preview was updated.
+
 WORKFLOW STATUS: PARTIAL
