@@ -1,6 +1,7 @@
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { safeNext } from "@/lib/auth/navigation";
+import { authError, guestDestination, signIn } from "@/lib/auth/service";
 
 export const Route = createFileRoute("/login")({
   ssr: false,
@@ -8,22 +9,14 @@ export const Route = createFileRoute("/login")({
     next: typeof s["next"] === "string" ? s["next"] : "/",
   }),
   beforeLoad: async ({ search }) => {
-    const { data } = await supabase.auth.getSession();
-    if (data.session) {
-      throw redirect({ href: sanitizeNext(search.next) });
-    }
+    const destination = await guestDestination(search.next);
+    if (destination) throw redirect({ href: destination });
   },
   component: Login,
 });
 
-function sanitizeNext(next: string): string {
-  try {
-    const url = new URL(next, window.location.origin);
-    if (url.origin !== window.location.origin) return "/";
-    return url.pathname + url.search;
-  } catch {
-    return "/";
-  }
+function sanitizeNext(next: string) {
+  return safeNext(next, window.location.origin);
 }
 
 function Login() {
@@ -38,38 +31,30 @@ function Login() {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) {
+    try {
+      await signIn(email, password);
+      await router.navigate({ href: sanitizeNext(next) });
+    } catch (e) {
+      setError(authError(e));
+    } finally {
       setBusy(false);
-      setError(error.message);
-      return;
     }
-    router.navigate({ href: sanitizeNext(next) });
   }
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm rounded-lg border border-border bg-card p-6 shadow-sm">
-        <h1 className="text-2xl font-semibold tracking-tight text-card-foreground">
-          Sign in
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Sign in to continue to Dukapambe.
-        </p>
+        <h1 className="text-2xl font-semibold tracking-tight text-card-foreground">Sign in</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Sign in to continue to Dukapambe.</p>
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-card-foreground"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-card-foreground">
               Email
             </label>
             <input
               id="email"
               type="email"
+              autoComplete="username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -77,15 +62,13 @@ function Login() {
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-card-foreground"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-card-foreground">
               Password
             </label>
             <input
               id="password"
               type="password"
+              autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -105,6 +88,12 @@ function Login() {
             {busy ? "Signing in..." : "Sign in"}
           </button>
         </form>
+        <a
+          href={`/forgot-password?next=${encodeURIComponent(sanitizeNext(next))}`}
+          className="mt-4 inline-block text-sm text-primary hover:underline"
+        >
+          Forgot password?
+        </a>
         <p className="mt-4 text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
           <a
